@@ -1,19 +1,39 @@
-# Dataset-Satelit-ML
+# Satellite Image Classification Model
 
-Satellite Image Classification
---
-This project aims to classify satellite images into different categories using machine learning techniques. The dataset used in this project is provided by XYZ Corporation and consists of satellite images of various regions around the world.
+This repository contains a deep learning model for satellite image classification. The model is trained to classify satellite images into four categories: cloudy, desert, green area, and water.
 
-Dataset
---
-The dataset consists of 10,000 satellite images of size 256x256 pixels. The images are labeled with one of 5 possible classes: Forest, Water, Urban, Agriculture, and Barren Land. The dataset is split into 80% training and 20% testing sets.
+### Dataset
 
-Methodology
---
-In this project, we used a convolutional neural network (CNN) to classify the satellite images. The CNN was implemented using the Keras library in Python.
+The model is trained on a dataset of satellite images, which can be downloaded from the following Kaggle dataset:
 
-We first preprocessed the images by normalizing the pixel values and performing data augmentation (randomly rotating and flipping images). We then trained the CNN on the training set and evaluated its performance on the testing set.
+### Satellite Image Classification Dataset
 
-Conclusion
---
-In this project, we developed a CNN model to classify satellite images into different categories. The model achieved an accuracy of 85% on the testing set, with good precision and recall for each class. This project can be extended by using more advanced models or by incorporating additional data sources.
+The dataset consists of images in different categories, each representing a specific type of land cover.
+
+### Model Architecture
+
+The model architecture is a convolutional neural network (CNN) built using the Keras Sequential API. It consists of several convolutional layers followed by max-pooling layers, a flatten layer, and dense layers. The final dense layer uses softmax activation to output the predicted probabilities for each class.
+
+The model architecture summary can be found in the code file.
+
+### Training
+
+The model is trained using the TensorFlow framework. The training process involves data preprocessing, including image resizing, normalization, and augmentation. The training data is split into training and validation subsets.
+
+During training, a custom callback is used to monitor the accuracy on both the training and validation data. If the accuracy reaches 88% on both sets, the training process is stopped early.
+
+The training history, including accuracy and loss curves, is visualized using matplotlib.
+
+### Inference
+
+Once the model is trained, it can be used for making predictions on new satellite images. The predict function takes an image as input, preprocesses it, and returns the predicted class label.
+
+An example image and its predicted class are included in the code file.
+
+### TensorFlow Lite Conversion
+
+The trained model is also converted to TensorFlow Lite format for deployment on resource-constrained devices. The TensorFlow Lite model can be used in mobile and embedded applications.
+
+The converted model is saved as model.tflite.
+
+Feel free to customize and extend this model according to your needs. Enjoy exploring satellite image classification with deep learning!
